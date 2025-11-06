@@ -11,6 +11,7 @@ def fetch_games(_force=False):
     try:
         r = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
         r.raise_for_status()
+        r.encoding = 'utf-8'
         soup = BeautifulSoup(r.text, 'html.parser')
         games = []
         seen = set()
